@@ -1,0 +1,1 @@
+* FIX getLastUserMessageDateTimeUTC() in case there are several messages

@@ -183,7 +183,8 @@ class ChatService implements ChatServiceInterface
             ->select($this->tableName)
             ->columns([$this->fieldInsertionDateTimeUTC])
             ->where([$this->fieldChannelId => $channelId, $this->fieldUserId => $userId])
-            ->order($this->fieldInsertionDateTimeUTC.' DESC');
+            ->order($this->fieldInsertionDateTimeUTC.' DESC')
+            ->limit(1);
         $stmt  = $sql->prepareStatementForSqlObject($query);
         $rows  = $stmt->execute();
         if (1 !== count($rows)) {
